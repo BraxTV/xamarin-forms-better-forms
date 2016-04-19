@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="BetterForms.Pages.LoginPage"
+	BackgroundImage="Background.jpg">
+	<ContentPage.Content>
+		<StackLayout
+			Orientation="Vertical"
+			Padding="20"
+			Spacing="30">
+			<BoxView
+				HeightRequest="10" />
+			<Image
+				HorizontalOptions="Center"
+				WidthRequest="300"
+				Source="Brax.png" />
+			<Frame
+				BackgroundColor="#BF043055"
+				HasShadow="false">
+				<StackLayout
+					Orientation="Vertical"
+					Spacing="10">
+					<Entry
+						x:Name="EmailEntry"
+						Text="{Binding EmailAddress}"
+						Placeholder="Email"
+						HeightRequest="40"
+						TextColor="Black" />
+					<Entry
+						x:Name="PasswordEntry"
+						Text="{Binding Password}"
+						Placeholder="Password"
+						HeightRequest="40"
+						TextColor="Black" />
+				</StackLayout>
+			</Frame>
+			<Button
+				Command="{Binding SubmitCommand}"
+				Text="Login"
+				TextColor="White"
+				FontAttributes="Bold"
+				FontSize="20"
+				HorizontalOptions="FillAndExpand"
+				BackgroundColor="#f49131" />
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>
