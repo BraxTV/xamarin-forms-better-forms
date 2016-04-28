@@ -15,7 +15,13 @@ namespace BetterForms.Pages
             vm.DisplayInvalidLoginPrompt += () => DisplayAlert("Sorry", "The credentials you supplied are incorrect.", "Ok");
             InitializeComponent();
 
-           
+			EmailEntry.Completed += (object sender, EventArgs e) => {
+				PasswordEntry.Focus();
+			};
+
+			PasswordEntry.Completed += (object sender, EventArgs e) => {
+				vm.SubmitCommand.Execute(null);
+			};
         }
     }
 }

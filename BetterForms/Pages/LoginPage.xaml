@@ -25,10 +25,12 @@
 						x:Name="EmailEntry"
 						Text="{Binding EmailAddress}"
 						Placeholder="Email"
+						Keyboard="Email"
 						HeightRequest="40"
 						TextColor="Black" />
 					<Entry
 						x:Name="PasswordEntry"
+						IsPassword="true"
 						Text="{Binding Password}"
 						Placeholder="Password"
 						HeightRequest="40"
