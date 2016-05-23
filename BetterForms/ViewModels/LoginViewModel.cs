@@ -3,11 +3,29 @@ using System.ComponentModel;
 using Xamarin.Forms;
 using System.Windows.Input;
 using BetterForms.Helpers;
+using System.Text.RegularExpressions;
+using BetterForms.Utils;
 
 namespace BetterForms.ViewModels
 {
     public class LoginViewModel:INotifyPropertyChanged
     {
+
+        private Color emailBackgroundColor;
+
+        public Color EmailBackgroundColor
+        {
+            get
+            {
+                return emailBackgroundColor;
+            }
+            set
+            {
+                emailBackgroundColor = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("EmailBackgroundColor"));
+            }
+        }
+
         #region INotifyPropertyChanged implementation
 
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
@@ -29,6 +47,7 @@ namespace BetterForms.ViewModels
                 emailAddress = value;
                 PropertyChanged(this, new PropertyChangedEventArgs("EmailAddress"));
                 BetterForms.Utils.Settings.LastUsedEmail = value;
+                EmailBackgroundColor = RegexUtil.ValidEmailAddress().IsMatch(value) ? Color.White : Color.Red;
             }
         }
 

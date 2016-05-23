@@ -25,6 +25,7 @@
 					<Entry
 						x:Name="EmailEntry"
 						Text="{Binding EmailAddress}"
+						BackgroundColor="{Binding EmailBackgroundColor}"
 						Placeholder="Email"
 						Keyboard="Email"
 						HeightRequest="40"
