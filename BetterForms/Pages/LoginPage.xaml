@@ -3,6 +3,7 @@
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	x:Class="BetterForms.Pages.LoginPage"
+	xmlns:effects="clr-namespace:BetterForms.Effects;assembly=BetterForms"
 	BackgroundImage="Background.jpg">
 	<ContentPage.Content>
 		<StackLayout
@@ -27,14 +28,24 @@
 						Placeholder="Email"
 						Keyboard="Email"
 						HeightRequest="40"
-						TextColor="Black" />
+						TextColor="Black">
+						<Entry.Effects>
+							<effects:ReturnKeyEffect
+								ReturnText="Next" />
+						</Entry.Effects>
+					</Entry>
 					<Entry
 						x:Name="PasswordEntry"
 						IsPassword="true"
 						Text="{Binding Password}"
 						Placeholder="Password"
 						HeightRequest="40"
-						TextColor="Black" />
+						TextColor="Black">
+						<Entry.Effects>
+							<effects:ReturnKeyEffect
+								ReturnText="Done" />
+						</Entry.Effects>
+					</Entry>
 				</StackLayout>
 			</Frame>
 			<Button
