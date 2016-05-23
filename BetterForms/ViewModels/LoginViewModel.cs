@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using Xamarin.Forms;
 using System.Windows.Input;
+using BetterForms.Helpers;
 
 namespace BetterForms.ViewModels
 {
@@ -27,6 +28,7 @@ namespace BetterForms.ViewModels
             {
                 emailAddress = value;
                 PropertyChanged(this, new PropertyChangedEventArgs("EmailAddress"));
+                BetterForms.Utils.Settings.LastUsedEmail = value;
             }
         }
 
@@ -50,6 +52,7 @@ namespace BetterForms.ViewModels
         public LoginViewModel()
         {
             SubmitCommand = new Command(OnSubmit);
+            EmailAddress = BetterForms.Utils.Settings.LastUsedEmail;
         }
 
         public void OnSubmit()
