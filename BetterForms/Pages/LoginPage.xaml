@@ -4,7 +4,52 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	x:Class="BetterForms.Pages.LoginPage"
 	xmlns:effects="clr-namespace:BetterForms.Effects;assembly=BetterForms"
+	xmlns:lval="clr-namespace:XLabs.Forms.Validation;assembly=XLabs.Forms"
+	xmlns:sys="clr-namespace:System;assembly=mscorlib"
+	xmlns:lp="clr-namespace:XLabs.Forms.Pages;assembly=XLabs.Forms"
+	xmlns:lcon="clr-namespace:XLabs.Forms.Converter;assembly=XLabs.Forms"
+	xmlns:lb="clr-namespace:XLabs.Forms.Behaviors;assembly=XLabs.Forms"
+	xmlns:lc="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
 	BackgroundImage="Background.jpg">
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<lval:Validator
+				x:Key="LoginFormValidator"
+				x:Name="LoginValidator">
+				<lval:Validator.Sets>
+					<lval:RuleSet
+						x:Name="EmailRuleSet">
+						<lval:RuleSet.Rules>
+							<lval:Rule
+								x:Name="RequiredEmailRule"
+								Element="{x:Reference EmailEntry}"
+								Property="Text"
+								Validators="Required,Email">
+								<lval:Rule.Actions>
+									<lval:Action
+										x:Name="emailAction"
+										Property="Font"
+										ValidValue="Medium,None"
+										InvalidValue="Large,Bold">
+										<lval:Action.Setters>
+											<lval:PropertySetter
+												Property="BackgroundColor"
+												ValidValue="Transparent"
+												InvalidValue="Green" />
+											<lval:PropertySetter
+												Property="Opacity"
+												ValidValue="0.5"
+												InvalidValue="1.0" />
+										</lval:Action.Setters>
+									</lval:Action>
+								</lval:Rule.Actions>
+							</lval:Rule>
+						</lval:RuleSet.Rules>
+					</lval:RuleSet>
+				</lval:Validator.Sets>
+			</lval:Validator>
+		</ResourceDictionary>
+	</ContentPage.Resources>
 	<ContentPage.Content>
 		<StackLayout
 			Orientation="Vertical"
@@ -24,8 +69,6 @@
 					Spacing="10">
 					<Entry
 						x:Name="EmailEntry"
-						Text="{Binding EmailAddress}"
-						BackgroundColor="{Binding EmailBackgroundColor}"
 						Placeholder="Email"
 						Keyboard="Email"
 						HeightRequest="40"
@@ -50,7 +93,7 @@
 				</StackLayout>
 			</Frame>
 			<Button
-				Command="{Binding SubmitCommand}"
+				x:Name="LoginButton"
 				Text="Login"
 				TextColor="White"
 				FontAttributes="Bold"
