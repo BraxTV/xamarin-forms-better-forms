@@ -26,7 +26,6 @@ namespace BetterForms.Droid
 		
 		public static void UpdateIdValues()
 		{
-			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::BetterForms.Droid.Resource.Attribute.actionBarSize;
 		}
 		
 		public partial class Attribute

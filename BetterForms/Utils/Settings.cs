@@ -31,11 +31,11 @@ namespace BetterForms.Utils
         {
             get
             {
-                return AppSettings.GetValueOrDefault<string>(LastEmailSettingsKey, SettingsDefault);
+                return AppSettings.GetValueOrDefault(LastEmailSettingsKey, SettingsDefault);
             }
             set
             {
-                AppSettings.AddOrUpdateValue<string>(LastEmailSettingsKey, value);
+                AppSettings.AddOrUpdateValue(LastEmailSettingsKey, value);
             }
         }
 

@@ -2,8 +2,6 @@
 using System.ComponentModel;
 using Xamarin.Forms;
 using System.Windows.Input;
-using BetterForms.Helpers;
-using System.Text.RegularExpressions;
 using BetterForms.Utils;
 
 namespace BetterForms.ViewModels
